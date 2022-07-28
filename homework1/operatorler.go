@@ -8,13 +8,15 @@ func main() {
 }
 
 func fibonacci(a int, b int) {
+
 	var sum int
 
-	for a := 0; a <= 10; a++ {
+	for i := 0; i <= 20; i++ {
 		sum = a + b
-		sum = sum + a
+		a = b
+		b = sum
 
-		fmt.Println(a, " + ", a+1, " = ", sum)
+		fmt.Println(i, " = ", "Fibonacci Sayisi : ", sum)
 	}
 
 }
