@@ -52,6 +52,8 @@ func calculateReceived(receivedVotersA int, receivedVotersB int) int {
 
 func calculatePercentile(totalreceivedVoters int, totalnumberofVoters int) int {
 
+	//TODO
+	//totalreceivedVoters değerine 0 göndererek program çıktısını bi inceleyelim nedir sonuç ?
 	totalPercentile := totalnumberofVoters * 100 / totalreceivedVoters
 
 	if totalPercentile == 50 {
