@@ -22,7 +22,7 @@ func main() {
 
 	// Oy kullanan seçmen sayısını , toplam alınan oy sayısını ve yüzdelik sonucu ekrana yazdırdık
 
-	totalnumberofVoters = calculateNumberof(numberofVotersA, numberofVotersB)
+	totalnumberofVoters = calculateNumberof(numberofVotersA, numberofVotersB, receivedVotersA, receivedVotersB)
 	totalreceivedVoters = calculateReceived(receivedVotersA, receivedVotersB)
 	totalPercentile = calculatePercentile(totalnumberofVoters, totalreceivedVoters)
 
@@ -33,9 +33,21 @@ func main() {
 
 //Toplam oy kullanan seçmen sayısını tanımladık
 
-func calculateNumberof(numberofVotersA int, numberofVotersB int) int {
+func calculateNumberof(numberofVotersA int, numberofVotersB int, receivedVotersA int, receivedVotersB int) int {
 
 	totalnumberofVoters := numberofVotersA + numberofVotersB
+
+	// ****Burada A ve B 'de kullanılan toplam oy sayısının alınan oy sayısından daha az olduğu zaman sistemin hata vermesini sağladık..***
+
+	if numberofVotersA < receivedVotersA {
+		fmt.Println("A şehrinde Kullanılan oy sayısı, alınan oy sayısından küçük olamaz")
+
+	} else if numberofVotersB < receivedVotersB {
+		fmt.Println("B şehrinde kullanılan oy sayısı , alınan oy sayısından küçük olamaz")
+
+	} else {
+		fmt.Println("Seçim Sonuçları açıklanmıştır")
+	}
 
 	return totalnumberofVoters
 }
@@ -54,6 +66,7 @@ func calculatePercentile(totalreceivedVoters int, totalnumberofVoters int) int {
 
 	//TODO
 	//totalreceivedVoters değerine 0 göndererek program çıktısını bi inceleyelim nedir sonuç ?
+
 	totalPercentile := totalnumberofVoters * 100 / totalreceivedVoters
 
 	if totalPercentile == 50 {
